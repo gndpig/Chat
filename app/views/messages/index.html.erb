@@ -1,12 +1,15 @@
 <h1>Chat</h1>
 
-<ul id="chat">
-  <%= render @messages %>
-</ul>
+<%= current_user.email %>としてログインしています。
+<%= link_to 'ログアウト', destroy_user_session_path, :method => :delete %>
 
 <%= form_for Message.new, :remote => true do |f| %>
   <%= f.text_field :content %>
   <%= f.submit "Send" %>
 <% end %>
+
+<ul id="chat">
+  <%= render @messages %>
+</ul>
 
 <%= subscribe_to "/messages/new" %>
