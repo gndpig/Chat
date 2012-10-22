@@ -6,9 +6,6 @@ class MessagesController < ApplicationController
   end
 
   def create
-
-    @message = current_user.messages.new
-    @message.content = params[:message][:content]
-    @message.save
+    @message = current_user.messages.create :content => params[:message][:content]
   end
 end
