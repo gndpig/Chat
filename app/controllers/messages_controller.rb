@@ -2,7 +2,7 @@
 class MessagesController < ApplicationController
   before_filter :authenticate_user!
   def index
-    @messages = Message.order('created_at desc')
+    @messages = Message.order('created_at desc').limit(5) 
   end
 
   def create
