@@ -1,4 +1,6 @@
 Chat::Application.routes.draw do
+  devise_for :users
+
 #  get "messages/index"
 
   resources :messages, only: [:index, :create]
